@@ -1,0 +1,55 @@
+x-common-env: &common-env
+  ASPNETCORE_ENVIRONMENT: Development
+
+x-common-env-file: &common-env-file
+  env_file:
+    - ${PLATFORM_ENV:-$HOME/.bd/.env}
+    - ${PLATFORM_ENV:-$HOME/.bd/.cert.env}
+    - ${PLATFORM_ENV:-$HOME/.bd/.local.env}
+
+services:
+  bd-home-web:
+    <<: *common-env-file
+    image: home-web
+    build:
+      context: ./
+      dockerfile: "./src/Web/Service/${DOCKERFILENAME:-Dockerfile}"
+      args:
+        - WEBPACK_MODE=development
+        - CONFIGURATION=Debug
+    hostname: "${DOCKER_HOSTNAME:-localhost}"
+    ports:
+      - "5001:8080"
+    environment:
+      <<: *common-env
+      ASPNETCORE_URLS: https://*:8080
+      Layout__Environment: home_local
+    develop:
+      watch:
+        - action: rebuild
+          path: ./src/Domain
+        - action: rebuild
+          path: ./src/Web/Service
+        - action: rebuild
+          path: ./src/Web/Client
+
+  bd-home-api:
+    <<: *common-env-file
+    image: home-api
+    build:
+      context: ./
+      dockerfile: "./src/Api/Service/${DOCKERFILENAME:-Dockerfile}"
+      args:
+        - CONFIGURATION=Debug
+    hostname: "${DOCKER_HOSTNAME:-localhost}"
+    ports:
+      - "5100:8080"
+    environment:
+      <<: *common-env
+      ASPNETCORE_URLS: https://*:8080;http://*:8888
+    develop:
+      watch:
+        - action: rebuild
+          path: ./src/Domain
+        - action: rebuild
+          path: ./src/Api

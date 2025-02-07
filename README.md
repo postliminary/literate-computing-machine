@@ -1,11 +1,11 @@
 # literate-computing-machine
 
 Starting point for hackathon...
-
-* Boilerplate for carrier income characteristics API
-* [Mock characteristics data](./docs/mock-characteristics.json)
-* [Mock estimated payout data](.docs/mock-estimated-payout.json)
-* [Mock system diagram](./docs/mock-system-diagram.drawio.html)
+* Boilerplate for [carrier income API](src/CarrierIncomeApi)
+* [Mock characteristics data](docs/mock-characteristics.json)
+* [Mock estimated payout data](docs/mock-estimated-payout.json)
+* [Mock system diagram](docs/mock-system-diagram.drawio.html)
+* Project stubs for the [consumer income API](src/ConsumerIncomeApi) and [consumer UI app](src/consumer-app)
 
 Some potential tasks:
 
