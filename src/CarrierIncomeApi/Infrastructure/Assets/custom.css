@@ -1,0 +1,33 @@
+/* Remove link columns */
+.swagger-ui .response-col_links {
+    display: none;
+}
+
+/* Fix alignment for response description */
+.swagger-ui .response .response-col_description .renderedMarkdown :first-child {
+    margin-top: 0;
+}
+
+/* Add some separation between responses */
+.swagger-ui table tbody tr td {
+    padding-bottom: 12px;
+    border-top: 1px solid lightgray;
+}
+
+/* Hide additional details for everything except default response */
+.swagger-ui .response:not(:first-of-type) .model-example, 
+.swagger-ui .response:not(:first-of-type) .response-controls {
+    display: none;
+}
+
+/* Limit curl command height */
+.swagger-ui .curl-command .curl {
+    max-height: 60px;
+    overflow-y: auto;
+}
+
+/* Highlight try it response */
+.swagger-ui .responses-inner > div > div {
+    padding: 12px;
+    background-color: white;
+}

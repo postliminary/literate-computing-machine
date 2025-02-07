@@ -1,6 +1,52 @@
+using CarrierIncomeApi.Infrastructure.Configuration;
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+var configuration = builder.Configuration;
+var host = builder.Host;
+var services = builder.Services;
+var environment = builder.Environment;
 
-app.MapGet("/", () => "Hello World!");
+/* Configuration */
+configuration
+    .AddEnvironmentVariables()
+    .Build();
 
-app.Run();
+/* Host */
+host.UseSerilog(
+    (context, config) =>
+    {
+        if (context.Configuration.GetValue<bool?>("Serilog:UseSelfLog") == true)
+            Serilog.Debugging.SelfLog.Enable(Console.Error);
+
+        config.ReadFrom.Configuration(context.Configuration);
+    });
+
+/* Services */
+services.AddOptions();
+
+services
+    .AddControllersWithViews()
+    .AddJsonOptions(environment.IsDevelopment()
+        ? JsonSerializationOptions.Development
+        : JsonSerializationOptions.Default);
+
+services.AddHealthChecks();
+services.AddSwagger(configuration);
+
+services.AddRepositories();
+
+var application = builder.Build();
+
+application.UseRouting();
+application.UseCors(policy =>
+{
+    policy.AllowAnyOrigin();
+    policy.AllowAnyHeader();
+    policy.AllowAnyMethod();
+});
+
+application.UseSwagger(configuration, environment);
+application.MapControllers();
+
+application.Run();
