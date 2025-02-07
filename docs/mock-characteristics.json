@@ -1,0 +1,111 @@
+{
+    "cusip": "ABC123ESY",
+    "policyNumber":"PL123456",
+    "productType":"Annuity",
+    "carrierName":"ABC Life Insurance",
+    // Base Policy Info
+    "receivedDate": "2025-02-01",
+    "issueDate": "2023-06-15",
+    "maturity": "2050-12-31",                                           // Available
+    "valuationDate": "2025-02-05",                                      // Available
+    "totalPremium": 100000.00,
+    "initialPremium": 50000.00,
+    "freeWithdrawalAmount": 10000.00,                                   // Missing
+    "theDollarAmountOfTheFreeWithdrawal": 10000.00,
+    "totalContractAmountOrAccountValue": 120000.00,
+    "surrenderChargeExpirationDate": "2028-01-01",
+    "surrenderValue": 90000.00,
+    "surrenderChargeAmount": 5000.00,
+    "rmdBasis": "Annuitized",
+    "rmdAmount": 3000.00,
+    "withdrawalsYtd": 2000.00,                                          // Missing
+    // Types of withdrawals
+    "rmdWithdrawal": 1500.50,
+    "systematicWithdrawal": 2000.75,                                    // Missing
+    "excessWithdrawal": 500.25,                                         // Missing
+    "freeWithdrawalAmountTaken": 1000.00,                               // Missing
+    "freeWithdrawalAvailableAtContractLevel": 3000.00,
+    "adHocWithdrawal": 750.00,
+    "totalWithdrawalsContractYearToDate": 7250.50,                      // Missing
+    "totalWithdrawal": 9250.50,
+    // Fees (Amounts or rates?)
+    "mAndEFee": 100.00,
+    "adminFee": 50.00,
+    "totalMAndEAndAFee": 150.00,
+    "policyFee": 25.00,
+    "advisoryFeeComingOutOfTheAnnuityFee": 30.00,                       // Missing
+    "feeForCreditingStrategiesFee": 20.00,                              // Missing
+    // Living Benefit Amount
+    "gmib": 10000.00,
+    "glwb": 8000.00,
+    "protectedPaymentAmount": 1200.00,
+    "totalProtectedAnnualIncomePaymentLifetime": 15000.00,
+    "currentProtectedPaymentBaseDeclining": 1100.00,
+    "guaranteedProtectionAmount": 13000.00,
+    "totalAnnualProtectedPaymentAmount": 12500.00,
+    "currentPayout": "2025-02-05",
+    "firstPayout": "2025-02-05",
+    "glwbCoveredLivesCodeSingleOrJoint": "Single",
+    "activatedGlwbCode": true,                                          // Inconsistant
+    "activatedGmibCode": true,                                          // Inconsistant
+    "maxAgeOfGmibAnnuitization": 85,                                    // Missing
+    "projectedGuaranteedIncomeBase": 11000.00,
+    "protectedPaymentBaseAmount": 1150.00,
+    "currentProtectedPaymentAmountLifetime": 1200.00,
+    // Living benefit riders
+    "rollupAmount": 10000.00,
+    "simpleOrCompound": "Compound",                                     // Missing
+    "rollupDurationYears": 15,                                          // Missing
+    "percentageOfPayout": 0.025,                                        // Missing
+    "riderFee": 100.00,
+    "riderFeeDisplayedSeperatelyFromIncomeOrOtherWithdrawals": true,
+    // Deathh benefit
+    "guaranteedDeathBenefitValue": 500000.00,
+    "deathBenefitAmount": 550000.00,
+    // Death benefit riders
+    "deathBenefitStandard": 100000.00,
+    "deathBenefitBeneficiaryProtectionRider": 50000.00,                 // Available
+    "deathBenefitSpousalProtection": 25000.00,                          // Available
+    "deathBenefitGrowth": 0.035,                                        // Available
+    "deathBenefitSteppedUp": true,                                      // Available
+    "deathBenefitROP": true,                                            // Available
+    "deathBenefitReturnOfAccountValue": 75000.00,                       // Available
+    "deathBenefitEnhancedEarnings": 12000.00,                           // Missing
+    "deathBenefitRollupAmount": 10000.00,                               // Missing
+    "deathBenefitSimpleOrCompound": "Compound",                         // Missing
+    "deathBenefitRollupDurationYears": 10,                              // Missing
+    "deathBenefitRiderFee": 250.00,
+    // Rates
+    "fixRate": 0.035,
+    "fiaRate": 0.0425,                                                  // Available
+    "minimumRate": 0.02,                                                // Inconsistant
+    "renewalRate": 0.03,                                                // Missing
+    // Upside crediting rates
+    "capRate": 0.06,                                                    // Available
+    "participationRate": 0.04,                                                    // Available
+    "triggerRate": 0.02,                                                // Available
+    // Downside protection
+    "bufferRate": 0.04,                                                 // Available
+    "floorRate": 0.01,                                                  // Available
+    "guaranteedMinimumRateSegments": [                                  // Inconsistant
+        {
+        "segmentName": "Segment1",
+        "rate": 0.035
+        },
+        {
+        "segmentName": "Segment2",
+        "rate": 0.045
+        }
+    ],
+    "indexDeterminationDateUsedToStartSegment": "2023-06-01",           // Missing
+    "indexDeterminationDateToEndSegment": "2023-12-31",                 // Missing
+    // Annuitization
+    "annuitizedDeferredAnnuityPresentValue": 250000.00,                 // Missing
+    "gmibAnnuitizedPresentValue": 200000.00,                            // Missing
+    "glwbAccountZeroPresentValue": 150000.00,                           // Missing
+    "spiaPresentValueCode": "SP123",                                    // Missing
+    "diaPresentValueCode": "DI456",                                     // Missing
+    // Other helpful fields ???
+    "lastPaymentAmount": 3000.00,
+    "payoutFrequency": "Monthly"
+}
